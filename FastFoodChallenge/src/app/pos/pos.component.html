@@ -1,0 +1,22 @@
+
+<h1> CREAR PEDIDO </h1>
+<div class="container m-3">
+<!-- la # sirve para indicar validar junto el nombre -->
+<form #form="ngForm" (ngSubmit)="sendOrder(form)" class="row container">
+
+<label for="num" class="form-label" >Number</label>
+<input #name="ngModel"  name="num" [(ngModel)]="order.num" type="number" required>
+
+<label for="name" class="form-label" >Nombre</label>
+<input #name="ngModel"  name="name" [(ngModel)]="order.name" type="text" required>
+
+<label for="description" class="form-label" >Descripcion</label>
+<input #description="ngModel"  name="description" [(ngModel)]="order.description" type="text" required>
+z
+    <button type="submit" [disabled]="!(order.name?.trim() || '') || !(order.description?.trim() || '')|| !(order.num || 0)">Cambiar</button>
+
+
+</form>
+
+
+</div>

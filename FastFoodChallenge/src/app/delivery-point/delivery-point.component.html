@@ -1,0 +1,28 @@
+
+<h1> PEDIDOS A ENTREGAR </h1>
+<div class="container m-3"></div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Numero</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      @for( order of lstOrders; track $index){
+        @if(order.status == 'to deliver'){
+        <tr>
+        <td>{{order.num}}</td>
+        <td>{{order.name}}</td>
+        <td>{{order.description}}</td>
+        <td>{{order.status}}</td>
+        <button type="submit" (click)="deliverOrder(order)"> Deliver</button>
+    </tr>
+    }
+    
+      }
+    </tbody>
+  </table>

@@ -1,0 +1,60 @@
+
+<h1>PEDIDOS A COCINAR </h1>
+<div class="container m-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Numero</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      @for( order of lstOrders; track $index){
+        @if(order.status == 'pending'){
+        <tr>
+        <td>{{order.num}}</td>
+        <td>{{order.name}}</td>
+        <td>{{order.description}}</td>
+        <td>{{order.status}}</td>
+        <button type="submit" (click)="cookOrder(order)"> Cook</button>
+    </tr>
+    }
+    
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="container m-3">
+    <h1>LISTOS </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Numero</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+          
+        @for( order of lstOrders; track $index){
+          @if(order.status == 'cooking'){
+          <tr>
+          <td>{{order.num}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.description}}</td>
+          <td>{{order.status}}</td>
+          
+      </tr>
+      
+      }
+        }
+        <button type="submit" (click)="toDelivery()"> FINISHED!</button>
+
+      </tbody>
+    </table>
+  </div>
