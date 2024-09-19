@@ -1,22 +1,36 @@
+<h1 class="text-center">CREAR PEDIDO</h1>
+<div class="container mt-3">
+  <!-- la # sirve para indicar validar junto el nombre -->
+  <form #form="ngForm" (ngSubmit)="sendOrder(form)" class="row g-3">
+    
+    <div class="col-md-4">
+      <label for="num" class="form-label">Number</label>
+      <input #num="ngModel" name="num" [(ngModel)]="order.num" type="number" class="form-control" required>
+      <!-- clase de Bootstrap para validación -->
+      
+    </div>
 
-<h1> CREAR PEDIDO </h1>
-<div class="container m-3">
-<!-- la # sirve para indicar validar junto el nombre -->
-<form #form="ngForm" (ngSubmit)="sendOrder(form)" class="row container">
+    <div class="col-md-4">
+      <label for="name" class="form-label">Nombre</label>
+      <input #name="ngModel" name="name" [(ngModel)]="order.name" type="text" class="form-control" required>
+      </div>
+    
 
-<label for="num" class="form-label" >Number</label>
-<input #name="ngModel"  name="num" [(ngModel)]="order.num" type="number" required>
+    <div class="col-md-4">
+      <label for="description" class="form-label">Descripción</label>
+      <input #description="ngModel" name="description" [(ngModel)]="order.description" type="text" class="form-control" required>
 
-<label for="name" class="form-label" >Nombre</label>
-<input #name="ngModel"  name="name" [(ngModel)]="order.name" type="text" required>
+    </div>
 
-<label for="description" class="form-label" >Descripcion</label>
-<input #description="ngModel"  name="description" [(ngModel)]="order.description" type="text" required>
-
-    <button type="submit" [disabled]="!(order.name?.trim() || '') || !(order.description?.trim() || '')|| !(order.num || 0)">Cambiar</button>
-
-
-</form>
-
-
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-12 text-center">
+          <!-- el trim sirve para que no se pueda enviar un string vacío -->
+          <button type="submit" class="btn btn-primary mt-3"
+            [disabled]="!(order.name?.trim() || '') || !(order.description?.trim() || '') || !(order.num || 0)">
+            LLevar a Cocina
+          </button>
+        </div>
+      </div>
+      
+  </form>
 </div>

@@ -1,13 +1,13 @@
-
-<h1>PEDIDOS A COCINAR </h1>
-<div class="container m-3">
-  <table class="table">
-    <thead>
+<h1 class="text-center">PEDIDOS A COCINAR</h1>
+<div class="container mt-3">
+  <table class="table table-striped">
+    <thead class="table-dark">
       <tr>
         <th>Numero</th>
         <th>Nombre</th>
         <th>Descripcion</th>
         <th>Estado</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -19,7 +19,7 @@
         <td>{{order.name}}</td>
         <td>{{order.description}}</td>
         <td>{{order.status}}</td>
-        <button type="submit" (click)="cookOrder(order)"> Cook</button>
+        <button type="button" class="btn btn-primary" (click)="cookOrder(order)">Cook</button>
     </tr>
     }
     
@@ -28,10 +28,10 @@
   </table>
 </div>
 
-<div class="container m-3">
-    <h1>LISTOS </h1>
-    <table class="table">
-      <thead>
+<div class="container mt-5">
+    <h1 class="text-center">LISTOS</h1>
+    <table class="table table-striped">
+      <thead class="table-dark">
         <tr>
           <th>Numero</th>
           <th>Nombre</th>
@@ -53,7 +53,12 @@
       
       }
         }
-        <button type="submit" (click)="toDelivery()"> FINISHED!</button>
+        
+        <div class=" col-12 justify-content-center align-items-center">
+            <div class="col-12 text-center">
+        <button type="button" class="btn btn-success" (click)="toDelivery()">FINISHED!</button>
+        </div>
+        </div>
 
       </tbody>
     </table>
